@@ -148,41 +148,77 @@
 
     <!-- DASHBOARD -->
     <div id="view-dashboard" class="view active">
-        <div style="margin-bottom:24px;">
-            <h1 style="font-family:'Jost',sans-serif;font-weight:300;font-size:1.9rem;color:#0a0a0a;margin:0;">Dashboard</h1>
-            <p style="font-size:11px;color:rgba(0,0,0,0.38);margin-top:4px;">SUNJIN Vietnam — Content Management</p>
+
+        <!-- Header -->
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:28px;">
+            <div>
+                <h1 style="font-family:'Jost',sans-serif;font-weight:300;font-size:1.9rem;color:#0a0a0a;margin:0;">Dashboard</h1>
+                <p style="font-size:11px;color:rgba(0,0,0,0.38);margin-top:4px;">SUNJIN Vietnam — Content Management</p>
+            </div>
+            <p style="font-size:10px;text-transform:uppercase;letter-spacing:0.18em;color:rgba(0,0,0,0.25);" id="dash-date"></p>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;">
-            <div class="stat-card">
-                <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:2.4rem;color:#0a0a0a;margin:0;" id="stat-p">—</p>
-                <p style="font-size:9px;text-transform:uppercase;letter-spacing:0.25em;color:rgba(0,0,0,0.32);margin-top:3px;">Projects</p>
-                <p style="font-size:11px;color:rgba(0,0,0,0.28);margin-top:7px;" id="stat-p-sub"></p>
+
+        <!-- Stat strip -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px;">
+            <div style="background:white;border:1px solid rgba(0,0,0,0.07);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:14px;">
+                <span style="font-family:'Jost',sans-serif;font-weight:300;font-size:2rem;color:#0a0a0a;line-height:1;" id="stat-p">—</span>
+                <div>
+                    <p style="font-size:9px;text-transform:uppercase;letter-spacing:0.22em;color:rgba(0,0,0,0.32);margin:0;">Projects</p>
+                    <p style="font-size:10px;color:rgba(0,0,0,0.28);margin-top:3px;" id="stat-p-sub"></p>
+                </div>
             </div>
-            <div class="stat-card">
-                <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:2.4rem;color:#0a0a0a;margin:0;" id="stat-b">—</p>
-                <p style="font-size:9px;text-transform:uppercase;letter-spacing:0.25em;color:rgba(0,0,0,0.32);margin-top:3px;">Blog Articles</p>
-                <p style="font-size:11px;color:rgba(0,0,0,0.28);margin-top:7px;" id="stat-b-sub"></p>
+            <div style="background:white;border:1px solid rgba(0,0,0,0.07);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:14px;">
+                <span style="font-family:'Jost',sans-serif;font-weight:300;font-size:2rem;color:#0a0a0a;line-height:1;" id="stat-b">—</span>
+                <div>
+                    <p style="font-size:9px;text-transform:uppercase;letter-spacing:0.22em;color:rgba(0,0,0,0.32);margin:0;">Blog Articles</p>
+                    <p style="font-size:10px;color:rgba(0,0,0,0.28);margin-top:3px;" id="stat-b-sub"></p>
+                </div>
             </div>
-            <div class="stat-card">
-                <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:2.4rem;color:#0a0a0a;margin:0;" id="stat-c">—</p>
-                <p style="font-size:9px;text-transform:uppercase;letter-spacing:0.25em;color:rgba(0,0,0,0.32);margin-top:3px;">Open Positions</p>
-                <p style="font-size:11px;color:rgba(0,0,0,0.28);margin-top:7px;" id="stat-c-sub"></p>
-            </div>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
-            <div class="stat-card" style="cursor:pointer;" onclick="showView('projects')">
-                <p style="font-size:9px;text-transform:uppercase;letter-spacing:0.25em;color:rgba(0,0,0,0.32);margin:0 0 14px;">Recent Projects <span style="float:right;">→</span></p>
-                <div id="dash-p" style="font-size:12px;color:rgba(0,0,0,0.55);"></div>
-            </div>
-            <div class="stat-card" style="cursor:pointer;" onclick="showView('blog')">
-                <p style="font-size:9px;text-transform:uppercase;letter-spacing:0.25em;color:rgba(0,0,0,0.32);margin:0 0 14px;">Recent Articles <span style="float:right;">→</span></p>
-                <div id="dash-b" style="font-size:12px;color:rgba(0,0,0,0.55);"></div>
-            </div>
-            <div class="stat-card" style="cursor:pointer;" onclick="showView('careers')">
-                <p style="font-size:9px;text-transform:uppercase;letter-spacing:0.25em;color:rgba(0,0,0,0.32);margin:0 0 14px;">Open Positions <span style="float:right;">→</span></p>
-                <div id="dash-c" style="font-size:12px;color:rgba(0,0,0,0.55);"></div>
+            <div style="background:white;border:1px solid rgba(0,0,0,0.07);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:14px;">
+                <span style="font-family:'Jost',sans-serif;font-weight:300;font-size:2rem;color:#0a0a0a;line-height:1;" id="stat-c">—</span>
+                <div>
+                    <p style="font-size:9px;text-transform:uppercase;letter-spacing:0.22em;color:rgba(0,0,0,0.32);margin:0;">Open Positions</p>
+                    <p style="font-size:10px;color:rgba(0,0,0,0.28);margin-top:3px;" id="stat-c-sub"></p>
+                </div>
             </div>
         </div>
+
+        <!-- Projects section -->
+        <div style="background:white;border:1px solid rgba(0,0,0,0.07);border-radius:10px;margin-bottom:12px;overflow:hidden;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid rgba(0,0,0,0.06);">
+                <div style="display:flex;align-items:center;gap:10px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                    <span style="font-size:9px;text-transform:uppercase;letter-spacing:0.25em;color:rgba(0,0,0,0.45);font-family:'Outfit',sans-serif;">Projects</span>
+                </div>
+                <button onclick="showView('projects')" style="font-size:9px;text-transform:uppercase;letter-spacing:0.18em;color:rgba(0,0,0,0.38);background:none;border:1px solid rgba(0,0,0,0.12);border-radius:5px;padding:4px 10px;cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.15s;" onmouseover="this.style.borderColor='rgba(0,0,0,0.4)';this.style.color='rgba(0,0,0,0.7)';" onmouseout="this.style.borderColor='rgba(0,0,0,0.12)';this.style.color='rgba(0,0,0,0.38)';">Manage →</button>
+            </div>
+            <div id="dash-p" style="padding:0 18px;"></div>
+        </div>
+
+        <!-- Blog section -->
+        <div style="background:white;border:1px solid rgba(0,0,0,0.07);border-radius:10px;margin-bottom:12px;overflow:hidden;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid rgba(0,0,0,0.06);">
+                <div style="display:flex;align-items:center;gap:10px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    <span style="font-size:9px;text-transform:uppercase;letter-spacing:0.25em;color:rgba(0,0,0,0.45);font-family:'Outfit',sans-serif;">Blog Articles</span>
+                </div>
+                <button onclick="showView('blog')" style="font-size:9px;text-transform:uppercase;letter-spacing:0.18em;color:rgba(0,0,0,0.38);background:none;border:1px solid rgba(0,0,0,0.12);border-radius:5px;padding:4px 10px;cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.15s;" onmouseover="this.style.borderColor='rgba(0,0,0,0.4)';this.style.color='rgba(0,0,0,0.7)';" onmouseout="this.style.borderColor='rgba(0,0,0,0.12)';this.style.color='rgba(0,0,0,0.38)';">Manage →</button>
+            </div>
+            <div id="dash-b" style="padding:0 18px;"></div>
+        </div>
+
+        <!-- Careers section -->
+        <div style="background:white;border:1px solid rgba(0,0,0,0.07);border-radius:10px;overflow:hidden;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid rgba(0,0,0,0.06);">
+                <div style="display:flex;align-items:center;gap:10px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+                    <span style="font-size:9px;text-transform:uppercase;letter-spacing:0.25em;color:rgba(0,0,0,0.45);font-family:'Outfit',sans-serif;">Open Positions</span>
+                </div>
+                <button onclick="showView('careers')" style="font-size:9px;text-transform:uppercase;letter-spacing:0.18em;color:rgba(0,0,0,0.38);background:none;border:1px solid rgba(0,0,0,0.12);border-radius:5px;padding:4px 10px;cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.15s;" onmouseover="this.style.borderColor='rgba(0,0,0,0.4)';this.style.color='rgba(0,0,0,0.7)';" onmouseout="this.style.borderColor='rgba(0,0,0,0.12)';this.style.color='rgba(0,0,0,0.38)';">Manage →</button>
+            </div>
+            <div id="dash-c" style="padding:0 18px;"></div>
+        </div>
+
     </div>
 
     <!-- PROJECTS -->
@@ -815,6 +851,12 @@ function showView(name) {
 function renderDashboard() {
     const projects = db('projects'), blog = db('blog'), careers = db('careers');
     const pub = a => a.filter(i => i.status === 'published').length;
+
+    // Date label
+    const dd = document.getElementById('dash-date');
+    if (dd) dd.textContent = new Date().toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+
+    // Stats
     document.getElementById('stat-p').textContent = projects.length;
     document.getElementById('stat-p-sub').textContent = pub(projects) + ' published · ' + (projects.length - pub(projects)) + ' draft';
     document.getElementById('stat-b').textContent = blog.length;
@@ -823,10 +865,29 @@ function renderDashboard() {
     document.getElementById('stat-c').textContent = pubCar;
     document.getElementById('stat-c-sub').textContent = (careers.length - pubCar) + ' draft';
 
-    const row = (title, status) => `<div style="padding:5px 0;border-bottom:1px solid rgba(0,0,0,0.05);display:flex;justify-content:space-between;align-items:center;gap:8px;"><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;">${x(title)}</span>${bdg(status)}</div>`;
-    document.getElementById('dash-p').innerHTML = [...projects].slice(-5).reverse().map(p => row(p.title, p.status)).join('') || '<p style="color:rgba(0,0,0,0.25);">None yet.</p>';
-    document.getElementById('dash-b').innerHTML = [...blog].slice(-5).reverse().map(b => row(b.title, b.status)).join('') || '<p style="color:rgba(0,0,0,0.25);">None yet.</p>';
-    document.getElementById('dash-c').innerHTML = [...careers].slice(-5).reverse().map(c => row(c.title, c.status)).join('') || '<p style="color:rgba(0,0,0,0.25);">None yet.</p>';
+    const CAT_LABEL = { hotel:'Hotel', school:'School', headquarters:'HQ', social:'Social', university:'University', bridge:'Bridge', residential:'Residential', cultural:'Cultural', park:'Park', office:'Office', news:'News', ideas:'Ideas', press:'Press', community:'Community', design:'Design', interior:'Interior', urbanplan:'Urban Plan', construction:'Construction', general:'General' };
+    const catPill = v => `<span style="font-size:9px;text-transform:uppercase;letter-spacing:0.14em;color:rgba(0,0,0,0.38);background:rgba(0,0,0,0.05);border-radius:4px;padding:2px 7px;white-space:nowrap;flex-shrink:0;">${x(CAT_LABEL[v]||v||'—')}</span>`;
+    const empty = '<p style="color:rgba(0,0,0,0.25);font-size:12px;padding:12px 0;">None yet.</p>';
+
+    const mkRow = (num, title, meta, status) =>
+        `<div style="display:flex;align-items:center;padding:9px 0;border-bottom:1px solid rgba(0,0,0,0.048);gap:10px;">
+            <span style="font-size:10px;color:rgba(0,0,0,0.2);min-width:20px;flex-shrink:0;">${num}</span>
+            <span style="flex:1;font-size:12px;color:rgba(0,0,0,0.72);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${title}</span>
+            ${meta}
+            ${bdg(status)}
+        </div>`;
+
+    document.getElementById('dash-p').innerHTML = projects.length
+        ? projects.map((p, i) => mkRow(String(i+1).padStart(2,'0'), x(p.title), catPill(p.category), p.status)).join('')
+        : empty;
+
+    document.getElementById('dash-b').innerHTML = blog.length
+        ? blog.map((b, i) => mkRow(String(i+1).padStart(2,'0'), x(b.title), catPill(b.category), b.status)).join('')
+        : empty;
+
+    document.getElementById('dash-c').innerHTML = careers.length
+        ? careers.map((c, i) => mkRow(String(i+1).padStart(2,'0'), x(c.title), catPill(c.department), c.status)).join('')
+        : empty;
 }
 
 // ─── PROJECTS ────────────────────────────────────────

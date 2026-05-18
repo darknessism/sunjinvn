@@ -228,7 +228,7 @@
         <!-- Results header -->
         <div class="flex items-center justify-between py-5 border-b border-black/8">
             <span class="font-sans text-[11px] uppercase tracking-[0.22em] text-black/30">
-                <span id="job-count">07</span>&nbsp; Positions
+                <span id="job-count">—</span>&nbsp; Positions
             </span>
             <button onclick="clearFilters()" class="font-sans text-[11px] uppercase tracking-[0.22em] text-black/22 hover:text-black/60 transition-colors interactive">Clear All</button>
         </div>
@@ -322,21 +322,12 @@
         document.querySelectorAll('.reveal-up,.reveal-fade').forEach(el=>observer.observe(el));
 
         // ── CMS: Careers Data ────────────────────────────────────────────
-        const CAREER_SEED = [
-            {id:'finishing-supervision',title:'Finishing Supervision (Interior)',department:'construction',location:'phuquoc',level:'intermediate',type:'Full-time',salary:'Negotiating',deadline:'2026-07-10',description:'Oversee interior finishing works across active construction sites in Phu Quoc.',requirements:'3+ years construction supervision experience, knowledge of interior finishing systems.',status:'published'},
-            {id:'senior-architect',title:'Senior Architect',department:'design',location:'hanoi',level:'expert',type:'Full-time',salary:'Negotiating',deadline:'2026-06-25',description:'Lead design development for complex architectural projects from concept to documentation.',requirements:'7+ years architecture practice, portfolio of built works required.',status:'published'},
-            {id:'urban-planning-designer',title:'Urban Planning Designer',department:'urbanplan',location:'hanoi',level:'intermediate',type:'Full-time',salary:'Negotiating',deadline:'2026-06-18',description:'Work on master planning and urban design projects across Vietnam.',requirements:'3–5 years urban planning experience, GIS proficiency preferred.',status:'published'},
-            {id:'interior-design-lead',title:'Interior Design Lead',department:'interior',location:'danang',level:'expert',type:'Full-time',salary:'Negotiating',deadline:'2026-07-01',description:'Direct interior design projects for hospitality and commercial clients.',requirements:'6+ years interior design, hospitality project experience preferred.',status:'published'},
-            {id:'architectural-designer',title:'Architectural Designer',department:'design',location:'hcm',level:'entry',type:'Full-time',salary:'Negotiating',deadline:'2026-06-11',description:'Support design teams on conceptual and schematic design phases.',requirements:'Architecture degree, proficiency in AutoCAD, Revit, and SketchUp.',status:'published'},
-            {id:'bim-coordinator',title:'BIM & Digital Design Coordinator',department:'design',location:'hanoi',level:'intermediate',type:'Full-time',salary:'Negotiating',deadline:'2026-07-20',description:'Manage BIM workflows and coordinate digital design outputs across all active projects.',requirements:'3+ years BIM coordination, Revit certification preferred.',status:'published'},
-            {id:'project-manager',title:'Project Manager',department:'general',location:'hcm',level:'expert',type:'Full-time',salary:'Negotiating',deadline:'2026-06-05',description:'Oversee project delivery from contract through to completion for major clients.',requirements:'7+ years project management in architecture or construction.',status:'published'}
-        ];
         const DEPT_LABEL = {design:'Design Division',interior:'Interior Design Division',urbanplan:'Urban Plan Division',construction:'Construction Division',general:'General Affairs'};
         const LOC_LABEL  = {hanoi:'Hanoi, Vietnam',danang:'Da Nang, Vietnam',hcm:'Ho Chi Minh City, Vietnam',phuquoc:'Phu Quoc, Vietnam'};
         const LVL_LABEL  = {entry:'Entry',intermediate:'Intermediate',expert:'Expert'};
         function carEsc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
         function closesIn(dl){if(!dl)return'Open Application';const t=new Date();t.setHours(0,0,0,0);const d=new Date(dl);d.setHours(0,0,0,0);const diff=Math.round((d-t)/86400000);if(diff<0)return'Closed';if(diff===0)return'Closes Today';return`Closes in ${diff}D`;}
-        function loadCareers(){const r=localStorage.getItem('sj_careers');if(r)return JSON.parse(r);localStorage.setItem('sj_careers',JSON.stringify(CAREER_SEED));return CAREER_SEED;}
+        function loadCareers(){ try { return JSON.parse(localStorage.getItem('sj_careers') || '[]'); } catch(e) { return []; } }
 
         // Multi-filter
         let activeFilters = { dept: 'all', location: 'all', level: 'all' };

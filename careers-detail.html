@@ -106,7 +106,7 @@
             </div>
             <div class="py-5 border-b border-white/10 pl-6">
                 <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-white/30 mb-2">Salary</p>
-                <p class="font-display font-light text-white text-lg">Negotiating</p>
+                <p id="meta-salary" class="font-display font-light text-white text-lg"></p>
             </div>
             <div class="py-5 border-b border-white/10 pr-6">
                 <div class="flex items-center gap-2 mb-2">
@@ -199,16 +199,10 @@
     const LOC_LABEL  = {hanoi:'Hanoi, Vietnam',danang:'Da Nang, Vietnam',hcm:'Ho Chi Minh City, Vietnam',phuquoc:'Phu Quoc, Vietnam'};
     const LVL_LABEL  = {entry:'Entry',intermediate:'Intermediate',expert:'Expert'};
 
-    function buildSections(sections) {
-        if (!Array.isArray(sections)) {
-            const text = String(sections || '').trim();
-            if (!text) return '';
-            return '<ul class="content-list">' + text.split('\n').filter(l => l.trim()).map(l => '<li>' + esc(l) + '</li>').join('') + '</ul>';
-        }
-        return sections.map(s =>
-            '<p class="content-section-title">' + esc(s.title) + '</p><ul class="content-list">' +
-            s.items.map(i => '<li>' + esc(i) + '</li>').join('') + '</ul>'
-        ).join('');
+    function buildList(text) {
+        const t = String(text || '').trim();
+        if (!t) return '';
+        return '<ul class="content-list">' + t.split('\n').filter(l => l.trim()).map(l => '<li>' + esc(l.trim()) + '</li>').join('') + '</ul>';
     }
 
     function buildBenefits(items) {
@@ -216,38 +210,33 @@
         return '<ul class="content-list">' + items.map(i => '<li>' + esc(i) + '</li>').join('') + '</ul>';
     }
 
-    function populate(meta, detail) {
+    function populate(meta) {
         document.title = (meta.title || '') + ' | Careers | SUNJIN VIETNAM';
 
         const img = document.getElementById('left-img');
-        if (detail && detail.image) { img.src = detail.image; img.alt = meta.title || ''; }
+        if (meta.coverImage) { img.src = meta.coverImage; img.alt = meta.title || ''; }
         else { img.style.display = 'none'; }
 
-        const titleEl = document.getElementById('job-title-h1');
-        titleEl.innerHTML = (detail && detail.titleBreaks) ? detail.titleBreaks : esc(meta.title || '');
-
+        document.getElementById('job-title-h1').textContent = meta.title || '';
         document.getElementById('meta-level').textContent    = LVL_LABEL[meta.level]      || meta.level      || '';
+        document.getElementById('meta-salary').textContent   = meta.salary || 'Negotiating';
         document.getElementById('meta-deadline').textContent = meta.deadline || '';
         document.getElementById('meta-division').textContent = DEPT_LABEL[meta.department] || meta.department || '';
         document.getElementById('meta-location').textContent = LOC_LABEL[meta.location]    || meta.location   || '';
 
-        const desc     = (detail && detail.description)  ? detail.description  : (meta.description  || '');
-        const req      = (detail && detail.requirements) ? detail.requirements : (meta.requirements || '');
-        const benefits = (detail && detail.benefits)     ? detail.benefits     : [];
-
-        document.getElementById('desc-content').innerHTML     = buildSections(desc);
-        document.getElementById('req-content').innerHTML      = buildSections(req);
-        document.getElementById('benefits-content').innerHTML = buildBenefits(benefits);
+        document.getElementById('desc-content').innerHTML     = buildList(meta.description);
+        document.getElementById('req-content').innerHTML      = buildList(meta.requirements);
+        document.getElementById('benefits-content').innerHTML = buildBenefits(meta.benefits);
     }
 
-    const id = new URLSearchParams(window.location.search).get('id') || 'finishing-supervision';
+    const id = new URLSearchParams(window.location.search).get('id') || '';
 
     (function loadJob() {
-        let meta = null, detail = null;
-        try { const arr = JSON.parse(localStorage.getItem('sj_careers') || '[]'); meta = arr.find(c => c.id === id) || null; } catch(e) {}
-        try { const raw = localStorage.getItem('sj_job_detail_' + id); if (raw) detail = JSON.parse(raw); } catch(e) {}
-        if (meta) { populate(meta, detail); return; }
-        if (detail) { populate({ title: id, level: '', department: '', location: '', deadline: '' }, detail); return; }
+        try {
+            const arr = JSON.parse(localStorage.getItem('sj_careers') || '[]');
+            const meta = arr.find(c => c.id === id);
+            if (meta) { populate(meta); return; }
+        } catch(e) {}
         document.getElementById('job-title-h1').textContent = 'Position not found.';
     })();
 

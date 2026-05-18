@@ -270,16 +270,6 @@
         });
 
         // ── CMS: Blog Data ──────────────────────────────────────────────
-        const BLOG_SEED = [
-            {id:'national-award',title:'SUNJIN VIETNAM Receives National Architecture Silver Award',category:'news',author:'SUNJIN Vietnam',date:'2025-01-15',readTime:'4',excerpt:'The CT11–12–13 Residential Complex earns the prestigious National Architecture Silver Award, recognising innovation in sustainable urban housing design across Vietnam.',coverImage:'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=2400&q=80',status:'published',cols:12},
-            {id:'tropical-climate',title:'Designing for Tropical Climate: Principles from Southeast Asia',category:'ideas',author:'SUNJIN Vietnam',date:'2025-04-08',readTime:'7',excerpt:'How passive cooling, natural ventilation, and biophilic design are reshaping architecture in Vietnam\'s rapidly developing cities.',coverImage:'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1600&q=80',status:'published',cols:7},
-            {id:'dezeen-spotlight',title:"Dezeen Spotlight: Vietnam's Modernist Architecture Revolution",category:'press',author:'SUNJIN Vietnam',date:'2025-02-22',readTime:'3',excerpt:"International design media turns its lens on Hanoi's emerging studios and their bold approach to contemporary form.",coverImage:'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1200&q=80',status:'published',cols:5},
-            {id:'green-hanoi',title:'Green Hanoi Initiative: 1,000 Trees, One City',category:'community',author:'SUNJIN Vietnam',date:'2024-11-05',readTime:'5',excerpt:'Our partnership with the City of Hanoi to restore urban green corridors across five districts in the capital.',coverImage:'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1000&q=80',status:'published',cols:4},
-            {id:'design-lab',title:"New Design Lab Opens in Hanoi's Ba Dinh District",category:'news',author:'SUNJIN Vietnam',date:'2025-03-18',readTime:'3',excerpt:'SUNJIN VIETNAM expands its studio with a state-of-the-art design laboratory built for collaboration and digital fabrication.',coverImage:'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=80',status:'published',cols:4},
-            {id:'public-space',title:'The Role of Public Space in Shaping Urban Identity',category:'ideas',author:'SUNJIN Vietnam',date:'2024-12-12',readTime:'6',excerpt:'Why the spaces between buildings matter just as much as the buildings themselves — and how design can restore civic life.',coverImage:'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1000&q=80',status:'published',cols:4},
-            {id:'sunjin-academy',title:'SUNJIN Academy: Training the Next Generation of Architects',category:'community',author:'SUNJIN Vietnam',date:'2025-01-30',readTime:'4',excerpt:'Our 2025 internship programme brings 20 architecture students into real studio practice across all active project phases.',coverImage:'https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?auto=format&fit=crop&w=1200&q=80',status:'published',cols:5},
-            {id:'architizer-awards',title:'Architizer A+ Awards 2024: Dich Vong Hau Kindergarten Wins Most Voted',category:'press',author:'SUNJIN Vietnam',date:'2024-06-10',readTime:'3',excerpt:"Global recognition for SUNJIN's most celebrated school project, praised by the international architecture community.",coverImage:'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1600&q=80',status:'published',cols:7}
-        ];
         function blogEsc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
         function blogFmtDate(iso){try{return new Date(iso).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});}catch(e){return iso||'';}}
         function blogCatLbl(c){return{news:'News',press:'Press Coverage',ideas:'Ideas',community:'Community Responsibility'}[c]||c;}
@@ -287,9 +277,7 @@
         function blogCardH(n,i){if(n>=12)return i===0?'70vh':'64vh';if(n>=5)return i<3?'54vh':'52vh';return'58vh';}
         function blogTitleFs(n){if(n>=12)return'clamp(1.8rem,4vw,3.8rem)';if(n>=7)return'clamp(1.3rem,2.8vw,2.4rem)';if(n>=5)return'clamp(1.2rem,2.5vw,2.2rem)';return'clamp(1.1rem,2.2vw,1.9rem)';}
         function renderBlogGrid() {
-            const raw = localStorage.getItem('sj_blog');
-            const data = (raw ? JSON.parse(raw) : BLOG_SEED).filter(a => a.status === 'published');
-            if (!raw) localStorage.setItem('sj_blog', JSON.stringify(BLOG_SEED));
+            const data = (() => { try { return JSON.parse(localStorage.getItem('sj_blog') || '[]'); } catch(e) { return []; } })().filter(a => a.status === 'published');
             const ct = document.getElementById('art-count');
             if (ct) ct.textContent = String(data.length).padStart(2,'0');
             const grid = document.getElementById('blog-grid');

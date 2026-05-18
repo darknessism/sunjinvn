@@ -41,6 +41,7 @@
         .tbl-row { display: grid; border-bottom: 1px solid rgba(0,0,0,0.055); transition: background 0.15s; }
         .tbl-row:hover { background: rgba(0,0,0,0.016); }
         .tbl-cell { padding: 12px 14px; font-size: 13px; color: rgba(0,0,0,0.72); display: flex; align-items: center; overflow: hidden; min-width: 0; }
+        .tbl-cell:last-child { padding-right: 24px; }
 
         /* Badges */
         .badge { display: inline-block; font-size: 9px; text-transform: uppercase; letter-spacing: 0.16em; padding: 3px 9px; border-radius: 10px; font-family: 'Outfit', sans-serif; white-space: nowrap; }
@@ -257,7 +258,7 @@
             </div>
         </div>
         <div style="background:white;border:1px solid rgba(0,0,0,0.07);border-radius:10px;overflow:hidden;">
-            <div class="tbl-head" style="grid-template-columns:42px 48px 1fr 108px 108px 64px 88px 76px;">
+            <div class="tbl-head" style="grid-template-columns:42px 48px 1fr 108px 108px 64px 88px 96px;">
                 <div class="tbl-th">#</div><div class="tbl-th"></div><div class="tbl-th">Title</div>
                 <div class="tbl-th">Category</div><div class="tbl-th">Location</div>
                 <div class="tbl-th">Year</div><div class="tbl-th">Status</div><div class="tbl-th">Actions</div>
@@ -302,7 +303,7 @@
             </div>
         </div>
         <div style="background:white;border:1px solid rgba(0,0,0,0.07);border-radius:10px;overflow:hidden;">
-            <div class="tbl-head" style="grid-template-columns:42px 48px 1fr 108px 118px 88px 106px;">
+            <div class="tbl-head" style="grid-template-columns:42px 48px 1fr 108px 118px 88px 96px;">
                 <div class="tbl-th">#</div><div class="tbl-th"></div><div class="tbl-th">Title</div>
                 <div class="tbl-th">Category</div><div class="tbl-th">Date</div>
                 <div class="tbl-th">Status</div><div class="tbl-th">Actions</div>
@@ -364,7 +365,7 @@
             </div>
         </div>
         <div style="background:white;border:1px solid rgba(0,0,0,0.07);border-radius:10px;overflow:hidden;">
-            <div class="tbl-head" style="grid-template-columns:42px 1fr 118px 128px 108px 108px 88px 78px;">
+            <div class="tbl-head" style="grid-template-columns:42px 1fr 118px 128px 108px 108px 88px 96px;">
                 <div class="tbl-th">#</div><div class="tbl-th">Position</div>
                 <div class="tbl-th">Department</div><div class="tbl-th">Location</div>
                 <div class="tbl-th">Level</div><div class="tbl-th">Deadline</div>
@@ -490,13 +491,13 @@ const SEED = {
         { id:'architizer-awards', title:'Architizer A+ Awards 2024: Dich Vong Hau Kindergarten Wins Most Voted', category:'press', author:'SUNJIN Vietnam', date:'2024-06-10', readTime:'3', excerpt:"Global recognition for SUNJIN's most celebrated school project.", coverImage:'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=300', status:'published', cols:7, createdAt:'2024-06-10' },
     ],
     careers: [
-        { id:'finishing-supervision', title:'Finishing Supervision (Interior)', department:'construction', location:'phuquoc', level:'intermediate', type:'Full-time', salary:'Negotiating', deadline:'2025-07-10', description:'Oversee interior finishing works across active construction sites in Phu Quoc.', requirements:'3+ years construction supervision experience, knowledge of interior finishing systems.', status:'published', createdAt:'2025-05-01' },
-        { id:'senior-architect', title:'Senior Architect', department:'design', location:'hanoi', level:'expert', type:'Full-time', salary:'Negotiating', deadline:'2025-06-25', description:'Lead design development for complex architectural projects from concept to documentation.', requirements:'7+ years architecture practice, portfolio of built works required.', status:'published', createdAt:'2025-05-01' },
-        { id:'urban-planning-designer', title:'Urban Planning Designer', department:'urbanplan', location:'hanoi', level:'intermediate', type:'Full-time', salary:'Negotiating', deadline:'2025-06-18', description:'Work on master planning and urban design projects across Vietnam.', requirements:'3–5 years urban planning experience, GIS proficiency preferred.', status:'published', createdAt:'2025-05-01' },
-        { id:'interior-design-lead', title:'Interior Design Lead', department:'interior', location:'danang', level:'expert', type:'Full-time', salary:'Negotiating', deadline:'2025-07-01', description:'Direct interior design projects for hospitality and commercial clients.', requirements:'6+ years interior design, hospitality project experience preferred.', status:'published', createdAt:'2025-05-01' },
-        { id:'architectural-designer', title:'Architectural Designer', department:'design', location:'hcm', level:'entry', type:'Full-time', salary:'Negotiating', deadline:'2025-06-11', description:'Support design teams on conceptual and schematic design phases.', requirements:'Architecture degree, proficiency in AutoCAD, Revit, and SketchUp.', status:'published', createdAt:'2025-05-01' },
-        { id:'bim-coordinator', title:'BIM & Digital Design Coordinator', department:'design', location:'hanoi', level:'intermediate', type:'Full-time', salary:'Negotiating', deadline:'2025-07-20', description:'Manage BIM workflows and coordinate digital design outputs across all active projects.', requirements:'3+ years BIM coordination, Revit certification preferred.', status:'published', createdAt:'2025-05-01' },
-        { id:'project-manager', title:'Project Manager', department:'general', location:'hcm', level:'expert', type:'Full-time', salary:'Negotiating', deadline:'2025-06-05', description:'Oversee project delivery from contract through to completion for major clients.', requirements:'7+ years project management in architecture or construction.', status:'published', createdAt:'2025-05-01' },
+        { id:'finishing-supervision', title:'Finishing Supervision (Interior)', department:'construction', location:'phuquoc', level:'intermediate', type:'Full-time', salary:'Negotiating', deadline:'2025-07-10', coverImage:'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1400&q=80', description:'Oversee interior finishing works across active construction sites in Phu Quoc.', requirements:'3+ years construction supervision experience, knowledge of interior finishing systems.', benefits:['Competitive salary based on experience and demonstrated capabilities','Full social insurance and health insurance as per Vietnamese labour law','13th month salary and performance-based annual bonus','Annual health check-up programme','Professional development, training, and workshop opportunities','Dynamic, collaborative, and internationally connected studio culture','Site allowance provided for Phu Quoc-based posting'], status:'published', createdAt:'2025-05-01' },
+        { id:'senior-architect', title:'Senior Architect', department:'design', location:'hanoi', level:'expert', type:'Full-time', salary:'Negotiating', deadline:'2025-06-25', coverImage:'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=80', description:'Lead design development for complex architectural projects from concept to documentation.', requirements:'7+ years architecture practice, portfolio of built works required.', benefits:['Competitive senior-level salary commensurate with experience','Full social and health insurance per Vietnamese labour law','13th month salary plus performance bonus','Annual health check-up and wellness allowance','Funded conference and study trip participation','Leadership pathway and performance review every 12 months','Flexible working arrangements available for senior staff'], status:'published', createdAt:'2025-05-01' },
+        { id:'urban-planning-designer', title:'Urban Planning Designer', department:'urbanplan', location:'hanoi', level:'intermediate', type:'Full-time', salary:'Negotiating', deadline:'2025-06-18', coverImage:'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1400&q=80', description:'Work on master planning and urban design projects across Vietnam.', requirements:'3–5 years urban planning experience, GIS proficiency preferred.', benefits:['Competitive salary based on experience','Full social and health insurance per Vietnamese labour law','13th month salary and annual performance bonus','Annual health check-up','Access to an international network of planning and design projects','Professional development and training budget','Exposure to large-scale masterplanning and resort development projects'], status:'published', createdAt:'2025-05-01' },
+        { id:'interior-design-lead', title:'Interior Design Lead', department:'interior', location:'danang', level:'expert', type:'Full-time', salary:'Negotiating', deadline:'2025-07-01', coverImage:'https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=1400&q=80', description:'Direct interior design projects for hospitality and commercial clients.', requirements:'6+ years interior design, hospitality project experience preferred.', benefits:['Senior-level salary negotiated individually based on portfolio and experience','Full social and health insurance','13th month salary and project performance bonus','Annual health check-up and wellness allowance','Relocation support package for candidates moving to Da Nang','Creative leadership role with direct client exposure and design ownership','International project exposure including resort and cultural typologies'], status:'published', createdAt:'2025-05-01' },
+        { id:'architectural-designer', title:'Architectural Designer', department:'design', location:'hcm', level:'entry', type:'Full-time', salary:'Negotiating', deadline:'2025-06-11', coverImage:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1400&q=80', description:'Support design teams on conceptual and schematic design phases.', requirements:'Architecture degree, proficiency in AutoCAD, Revit, and SketchUp.', benefits:['Competitive entry-level salary with structured annual progression','Full social and health insurance per Vietnamese labour law','13th month salary','Annual health check-up','Structured mentoring from senior architects on live projects','Regular internal design reviews and training sessions','Clear progression pathway toward Intermediate and Senior roles'], status:'published', createdAt:'2025-05-01' },
+        { id:'bim-coordinator', title:'BIM & Digital Design Coordinator', department:'design', location:'hanoi', level:'intermediate', type:'Full-time', salary:'Negotiating', deadline:'2025-07-20', coverImage:'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1400&q=80', description:'Manage BIM workflows and coordinate digital design outputs across all active projects.', requirements:'3+ years BIM coordination, Revit certification preferred.', benefits:['Competitive salary reflecting specialist BIM expertise','Full social and health insurance','13th month salary and annual performance bonus','Annual health check-up','Software and hardware support for BIM workstation requirements','Funding for BIM certification and professional development courses',"Central role in shaping SUNJIN's digital design capability and culture"], status:'published', createdAt:'2025-05-01' },
+        { id:'project-manager', title:'Project Manager', department:'general', location:'hcm', level:'expert', type:'Full-time', salary:'Negotiating', deadline:'2025-06-05', coverImage:'https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=1400&q=80', description:'Oversee project delivery from contract through to completion for major clients.', requirements:'7+ years project management in architecture or construction.', benefits:['Highly competitive senior salary commensurate with experience and leadership scope','Full social and health insurance','13th month salary and project performance bonus tied to outcomes','Annual health check-up and executive wellness allowance','Business travel and client entertainment budget','Direct participation in firm leadership and business development strategy','Career path to Director level within 2–3 years for high performers'], status:'published', createdAt:'2025-05-01' },
     ],
     details: {
       grandtourane: {
@@ -904,7 +905,7 @@ function renderProjects() {
     const empty = document.getElementById('proj-empty');
     if (!filtered.length) { body.innerHTML = ''; empty.style.display = 'block'; return; }
     empty.style.display = 'none';
-    const cols = '42px 48px 1fr 108px 108px 64px 88px 76px';
+    const cols = '42px 48px 1fr 108px 108px 64px 88px 96px';
     body.innerHTML = filtered.map((p, i) => `
         <div class="tbl-row" style="grid-template-columns:${cols};">
             <div class="tbl-cell" style="color:rgba(0,0,0,0.22);font-size:10px;">${String(i+1).padStart(2,'0')}</div>
@@ -938,7 +939,7 @@ function renderBlog() {
     const empty = document.getElementById('blog-empty');
     if (!filtered.length) { body.innerHTML = ''; empty.style.display = 'block'; return; }
     empty.style.display = 'none';
-    const cols = '42px 48px 1fr 108px 118px 88px 106px';
+    const cols = '42px 48px 1fr 108px 118px 88px 96px';
     body.innerHTML = filtered.map((b, i) => `
         <div class="tbl-row" style="grid-template-columns:${cols};">
             <div class="tbl-cell" style="color:rgba(0,0,0,0.22);font-size:10px;">${String(i+1).padStart(2,'0')}</div>
@@ -951,8 +952,7 @@ function renderBlog() {
             <div class="tbl-cell" style="font-size:12px;color:rgba(0,0,0,0.48);">${x(b.date||'—')}</div>
             <div class="tbl-cell">${bdg(b.status)}</div>
             <div class="tbl-cell" style="gap:5px;">
-                <button class="act-btn" onclick="openBlogContent('${xid(b.id)}')" title="Edit article content" style="color:rgba(0,0,0,0.45);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></button>
-                <button class="act-btn" onclick="openModal('blog','${xid(b.id)}')" title="Edit metadata"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                <button class="act-btn" onclick="openBlogContent('${xid(b.id)}')" title="Edit article" style="color:rgba(0,0,0,0.45);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
                 <button class="act-btn del" onclick="confirmDel('blog','${xid(b.id)}','${xid(b.title)}')" title="Delete"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg></button>
             </div>
         </div>`).join('');
@@ -974,7 +974,7 @@ function renderCareers() {
     const empty = document.getElementById('car-empty');
     if (!filtered.length) { body.innerHTML = ''; empty.style.display = 'block'; return; }
     empty.style.display = 'none';
-    const cols = '42px 1fr 118px 128px 108px 108px 88px 78px';
+    const cols = '42px 1fr 118px 128px 108px 108px 88px 96px';
     body.innerHTML = filtered.map((c, i) => `
         <div class="tbl-row" style="grid-template-columns:${cols};">
             <div class="tbl-cell" style="color:rgba(0,0,0,0.22);font-size:10px;">${String(i+1).padStart(2,'0')}</div>
@@ -1093,8 +1093,10 @@ function carForm(c) {
             field('Salary', `<input id="f-salary" class="field-input" value="${x(v.salary||'Negotiating')}" placeholder="e.g. Negotiating">`),
             field('Application Deadline', `<input id="f-deadline" class="field-input" type="date" value="${x(v.deadline||'')}">`)
         )}
+        ${field('Cover Image URL', `<input id="f-car-img" class="field-input" value="${x(v.coverImage||'')}" placeholder="https://...">`)}
         ${field('Job Description', `<textarea id="f-desc" class="field-textarea" placeholder="Role and responsibilities…">${x(v.description||'')}</textarea>`)}
         ${field('Requirements', `<textarea id="f-req" class="field-textarea" placeholder="Experience, skills, qualifications…">${x(v.requirements||'')}</textarea>`)}
+        ${field('Benefits', `<textarea id="f-benefits" class="field-textarea" placeholder="One benefit per line…">${x(Array.isArray(v.benefits) ? v.benefits.join('\n') : (v.benefits||''))}</textarea>`)}
         ${field('Status', `<select id="f-status" class="field-select">${sel([['published','Published'],['draft','Draft']],v.status||'published')}</select>`)}
     </div>
     ${modalFooter('saveCareer', c ? 'Save Changes' : 'Add Position')}
@@ -1161,8 +1163,10 @@ function saveCareer() {
         type: document.getElementById('f-type').value,
         salary: document.getElementById('f-salary').value.trim(),
         deadline: document.getElementById('f-deadline').value,
+        coverImage: document.getElementById('f-car-img').value.trim(),
         description: document.getElementById('f-desc').value.trim(),
         requirements: document.getElementById('f-req').value.trim(),
+        benefits: document.getElementById('f-benefits').value.split('\n').filter(l => l.trim()).map(l => l.trim()),
         status: document.getElementById('f-status').value,
         createdAt: _id ? (careers.find(c => c.id === _id)?.createdAt || today()) : today(),
     };
@@ -1531,6 +1535,7 @@ function saveDetail() {
 // ══════════════════════════════════════════════════════
 let _bci = null;
 let _bc  = null;
+let _bc_meta = null;
 
 function blankBlogContent() {
     return {
@@ -1555,12 +1560,12 @@ function openBlogContent(id) {
     const stored = localStorage.getItem('sj_blog_content_' + id);
     _bc = stored ? JSON.parse(stored) : blankBlogContent();
     if (!_bc.related) _bc.related = blankBlogContent().related;
+    _bc_meta = db('blog').find(b => b.id === id) || null;
     document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
     document.getElementById('view-blog-content').classList.add('active');
     document.querySelector('.nav-item[data-view="blog"]').classList.add('active');
-    const art = db('blog').find(b => b.id === id);
-    document.getElementById('bc-heading').textContent = 'Article Content — ' + (art ? art.title : id);
+    document.getElementById('bc-heading').textContent = 'Edit Article — ' + (_bc_meta ? _bc_meta.title : id);
     document.getElementById('bc-preview-link').href = 'blog-detail.html?id=' + id;
     renderBlogContentBody();
 }
@@ -1582,6 +1587,22 @@ function bcCard(title, body) {
 
 function buildBlogContentHTML(d) {
     const prev = url => url ? `<img src="${x(url)}" style="width:100%;max-height:90px;object-fit:cover;border-radius:4px;margin-top:6px;" onerror="this.style.display='none'">` : '';
+
+    const vm = _bc_meta || {};
+    const metaSec = bcCard('Article Info', `
+        ${fld('Article Title *', inp('bc-meta-title', vm.title||'', 'Article headline'))}
+        ${row2(
+            fld('Category *', `<select id="bc-meta-cat" class="field-input" style="cursor:pointer;">${sel([['news','News'],['press','Press Coverage'],['ideas','Ideas'],['community','Community Responsibility']],vm.category||'news')}</select>`),
+            fld('Date', `<input id="bc-meta-date" class="field-input" type="date" value="${x(vm.date||new Date().toISOString().slice(0,10))}">`)
+        )}
+        ${row2(
+            fld('Author', inp('bc-meta-author', vm.author||'SUNJIN Vietnam', 'Author name')),
+            fld('Read Time (min)', `<input id="bc-meta-rt" class="field-input" type="number" min="1" value="${x(String(vm.readTime||'5'))}">`)
+        )}
+        ${fld('Cover Image URL', `<div>${inp('bc-meta-img', vm.coverImage||'', 'https://...')}${prev(vm.coverImage)}</div>`)}
+        ${fld('Excerpt', ta('bc-meta-excerpt', vm.excerpt||'', 'Short description shown in article listings…'))}
+        ${fld('Status', `<select id="bc-meta-status" class="field-input" style="cursor:pointer;">${sel([['published','Published'],['draft','Draft']],vm.status||'published')}</select>`)}
+    `);
 
     const leadSec = bcCard('Lead Paragraph (displayed large)', `
         <label class="field-label">Opening statement</label>
@@ -1645,11 +1666,24 @@ function buildBlogContentHTML(d) {
 
     const relSec = bcCard('Related Articles (3 shown at bottom of article)', relRows);
 
-    return leadSec + bodySec + quoteSec + figureSec + afterSec + tagsSec + relSec;
+    return metaSec + leadSec + bodySec + quoteSec + figureSec + afterSec + tagsSec + relSec;
 }
 
 function collectBlogContent() {
     const g = id => { const el = document.getElementById(id); return el ? el.value : ''; };
+    if (_bc_meta) {
+        const t = g('bc-meta-title').trim();
+        if (t) _bc_meta.title = t;
+        const catEl = document.getElementById('bc-meta-cat');
+        if (catEl) _bc_meta.category = catEl.value;
+        _bc_meta.date = g('bc-meta-date');
+        _bc_meta.author = g('bc-meta-author').trim();
+        _bc_meta.readTime = g('bc-meta-rt');
+        _bc_meta.coverImage = g('bc-meta-img').trim();
+        _bc_meta.excerpt = g('bc-meta-excerpt').trim();
+        const stEl = document.getElementById('bc-meta-status');
+        if (stEl) _bc_meta.status = stEl.value;
+    }
     _bc.lead = g('bc-lead');
     _bc.body = (_bc.body||['']).map((_, i) => { const el = document.getElementById('bc-body-' + i); return el ? el.value : ''; });
     _bc.pullQuote = g('bc-quote');
@@ -1693,8 +1727,14 @@ function bcRemoveAfter(i) {
 
 function saveBlogContent() {
     collectBlogContent();
+    if (_bc_meta) {
+        const blog = db('blog');
+        const i = blog.findIndex(b => b.id === _bci);
+        if (i > -1) { blog[i] = _bc_meta; save('blog', blog); renderDashboard(); }
+    }
     localStorage.setItem('sj_blog_content_' + _bci, JSON.stringify(_bc));
-    toast('Article content saved for "' + (_bci) + '".');
+    document.getElementById('bc-heading').textContent = 'Edit Article — ' + (_bc_meta ? _bc_meta.title : _bci);
+    toast('Article saved.');
 }
 
 // ─── INIT ────────────────────────────────────────────
@@ -1709,11 +1749,22 @@ function initApp() {
             localStorage.setItem('sj_blog_content_' + aid, JSON.stringify(data));
         }
     });
-    Object.entries(SEED.job_details).forEach(([jid, data]) => {
-        if (!localStorage.getItem('sj_job_detail_' + jid)) {
-            localStorage.setItem('sj_job_detail_' + jid, JSON.stringify(data));
-        }
-    });
+    // Migrate existing careers: fill coverImage and benefits from SEED if not yet present
+    const _rawCareers = localStorage.getItem('sj_careers');
+    if (_rawCareers) {
+        try {
+            const _cArr = JSON.parse(_rawCareers);
+            let _dirty = false;
+            _cArr.forEach(c => {
+                const s = SEED.careers.find(sc => sc.id === c.id);
+                if (s) {
+                    if (!c.coverImage && s.coverImage) { c.coverImage = s.coverImage; _dirty = true; }
+                    if ((!c.benefits || !c.benefits.length) && s.benefits && s.benefits.length) { c.benefits = s.benefits; _dirty = true; }
+                }
+            });
+            if (_dirty) localStorage.setItem('sj_careers', JSON.stringify(_cArr));
+        } catch(e) {}
+    }
     renderDashboard();
 }
 checkAuth();

@@ -223,7 +223,7 @@
     <script>
     // ── All content driven by localStorage (seeded & edited via admin.html) ─────
 
-    const id = new URLSearchParams(window.location.search).get('id') || 'grandtourane';
+    const id = new URLSearchParams(window.location.search).get('id') || '';
 
     // ── Helpers ──────────────────────────────────────────────────────────────────
     function esc(s) { return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
